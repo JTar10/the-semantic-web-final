@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Navigate,
+} from "react-router-dom";
+import Home from "./components/tabs/Home";
+import CourseCatalog from "./components/tabs/CourseCatalog";
+import PurchaseCourse from "./components/tabs/PurchaseCourse";
+import Practice from "./components/tabs/Practice";
+import Schedule from "./components/tabs/Schedule";
+import Chat from "./components/tabs/Chat";
+import Navbar from "./components/navbar/navbar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<div>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/courseCatalog" element={<CourseCatalog />} />
+					<Route path="/purchaseCourse" element={<PurchaseCourse />} />
+					<Route path="/practice" element={<Practice />} />
+					<Route path="/schedule" element={<Schedule />} />
+					<Route path="/chat" element={<Chat />} />
+					<Route path="*" element={<Navigate to="/" />} />
+				</Routes>
+			</div>
+		</Router>
+	);
 }
 
 export default App;

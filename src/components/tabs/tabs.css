@@ -1,0 +1,55 @@
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.home-button {
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin-top: 30px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+h2 {
+    margin: 25px;
+}
+
+h4 {
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+p {
+    margin-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.row {
+    justify-content: space-between;
+    display: flex;
+}
+  
+.input-field {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    margin-left: 25px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
