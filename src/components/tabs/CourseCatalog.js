@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const CourseCatalog = () => {
 	const courseList = [
@@ -614,156 +617,172 @@ const CourseCatalog = () => {
 	});
 
 	return (
-		<div>
+		<>
 			<h2>Course Catalog</h2>
-			<div>
-				<div>
-					<h4>Language</h4>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("ENG")}
-					>
-						English
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("FRE")}
-					>
-						French
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("SPA")}
-					>
-						Spanish
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("ARA")}
-					>
-						Arabic
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("GER")}
-					>
-						German
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("RUS")}
-					>
-						Russian
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLanguageFilter("")}
-					>
-						All
-					</button>
-				</div>
-				<div>
-					<h4>Difficulty</h4>
-					<button
-						className="filter-button"
-						onClick={() => setLevelFilter("Beginner")}
-					>
-						Beginner
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLevelFilter("Intermediate")}
-					>
-						Intermediate
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setLevelFilter("Advanced")}
-					>
-						Advanced
-					</button>
-					<button className="filter-button" onClick={() => setLevelFilter("")}>
-						All
-					</button>
-				</div>
-				<div>
-					<h4>Class Type</h4>
-					<button
-						className="filter-button"
-						onClick={() => setClassFilter("Individual")}
-					>
-						Individual
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setClassFilter("Group")}
-					>
-						Group
-					</button>
-					<button className="filter-button" onClick={() => setClassFilter("")}>
-						All
-					</button>
-				</div>
-				<div>
-					<h4>Modality</h4>
-					<button
-						className="filter-button"
-						onClick={() => setModalityFilter("In Person")}
-					>
-						In Person
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setModalityFilter("Online")}
-					>
-						Online
-					</button>
-					<button
-						className="filter-button"
-						onClick={() => setModalityFilter("")}
-					>
-						All
-					</button>
-				</div>
-				<div>
-					<h4>Reset All Filters</h4>
-					<button
-						className="filter-button"
-						onClick={() => {
-							setLanguageFilter("");
-							setLevelFilter("");
-							setClassFilter("");
-							setModalityFilter("");
-						}}
-					>
-						Reset
-					</button>
-				</div>
-			</div>
-			<h4>Course Search</h4>
-			<input
-				type="text"
-				className="input-field"
-				value={searchFilter}
-				onChange={(event) => setSearchFilter(event.target.value)}
-				placeholder="SPA312"
-			/>
-			<div>
-				{filteredCourses.map((course, index) => (
-					<div key={index}>
-						<p style={{ marginTop: "25px" }}>{course.code}</p>
-						<p>• {course.level}</p>
-						<p>• {course.class}</p>
-						<p>• {course.length}</p>
-						<p>• {course.modality}</p>
-						<p>• {course.price}</p>
-						<button type="button" className="filter-button" onClick={purchase}>
-							Purchase Course
-						</button>
-					</div>
-				))}
-			</div>
-		</div>
+			<Container>
+				<Row>
+					<Col sm={4}>
+						<div>
+							<h4>Language</h4>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("ENG")}
+							>
+								English
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("FRE")}
+							>
+								French
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("SPA")}
+							>
+								Spanish
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("ARA")}
+							>
+								Arabic
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("GER")}
+							>
+								German
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("RUS")}
+							>
+								Russian
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLanguageFilter("")}
+							>
+								All
+							</button>
+						</div>
+						<div>
+							<h4>Difficulty</h4>
+							<button
+								className="filter-button"
+								onClick={() => setLevelFilter("Beginner")}
+							>
+								Beginner
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLevelFilter("Intermediate")}
+							>
+								Intermediate
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLevelFilter("Advanced")}
+							>
+								Advanced
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setLevelFilter("")}
+							>
+								All
+							</button>
+						</div>
+						<div>
+							<h4>Class Type</h4>
+							<button
+								className="filter-button"
+								onClick={() => setClassFilter("Individual")}
+							>
+								Individual
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setClassFilter("Group")}
+							>
+								Group
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setClassFilter("")}
+							>
+								All
+							</button>
+						</div>
+						<div>
+							<h4>Modality</h4>
+							<button
+								className="filter-button"
+								onClick={() => setModalityFilter("In Person")}
+							>
+								In Person
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setModalityFilter("Online")}
+							>
+								Online
+							</button>
+							<button
+								className="filter-button"
+								onClick={() => setModalityFilter("")}
+							>
+								All
+							</button>
+						</div>
+						<div>
+							<h4>Reset All Filters</h4>
+							<button
+								className="filter-button"
+								onClick={() => {
+									setLanguageFilter("");
+									setLevelFilter("");
+									setClassFilter("");
+									setModalityFilter("");
+								}}
+							>
+								Reset
+							</button>
+						</div>
+						<h4>Course Search</h4>
+						<input
+							type="text"
+							className="input-field"
+							value={searchFilter}
+							onChange={(event) => setSearchFilter(event.target.value)}
+							placeholder="SPA312"
+						/>
+					</Col>
+					<Col sm={8}>
+						<div>
+							{filteredCourses.map((course, index) => (
+								<div key={index}>
+									<p style={{ marginTop: "25px" }}>{course.code}</p>
+									<p>• {course.level}</p>
+									<p>• {course.class}</p>
+									<p>• {course.length}</p>
+									<p>• {course.modality}</p>
+									<p>• {course.price}</p>
+									<button
+										type="button"
+										className="filter-button"
+										onClick={purchase}
+									>
+										Purchase Course
+									</button>
+								</div>
+							))}
+						</div>
+					</Col>
+				</Row>
+			</Container>
+		</>
 	);
 };
 

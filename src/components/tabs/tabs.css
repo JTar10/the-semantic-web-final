@@ -15,6 +15,11 @@
     margin-top: 30px;
     padding: 10px 15px;
     border-radius: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.home-button:hover {
+    background-color: #3d3c3c;
 }
 
 h2 {
@@ -50,6 +55,10 @@ p {
     margin-left: 25px;
     padding: 5px;
     border-radius: 10px;
+    transition: 0.2s ease-in-out;
 }
 
+.filter-button:hover {
+    background-color: #3d3c3c;
+}
 

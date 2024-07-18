@@ -1,45 +1,43 @@
 import React from "react";
 import { useState } from "react";
-import Select from "react-select";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const Chat = () => {
 	const [contact, setContact] = useState(null);
 
 	return (
-		<div>
+		<>
 			<h2>Chat with Others</h2>
 			<p>Send a message to your friends or instructors.</p>
 			<br />
 			<br />
 			<div className="center">
-				<form>
+				<Form>
 					<div className="row">
-						<div className="input-field">
-							<label>Language to Practice</label>
-							<Select
-								options={[
-									{ value: "Friend Tom", label: "Friend Tom" },
-									{ value: "Friend Henry", label: "Friend Henry" },
-									{ value: "Instructor Joseph", label: "Instructor Joseph" },
-									{ value: "Friend Jacob", label: "Friend Jacob" },
-									{ value: "Instructor Taz", label: "Instructor Taz" },
-									{ value: "Friend Matthew", label: "Friend Matthew" },
-								]}
-								value={contact}
-								onChange={(option) => setContact(option)}
-							/>
-						</div>
-						<div className="input-field">
-							<label>Message</label>
-							<input type="text" />
-						</div>
+						<Form.Select aria-label="Default select example">
+							<option>Open this select menu</option>
+							<option value="Friend Tom">Friend Tom</option>
+							<option value="Friend Henry">Friend Henry</option>
+							<option value="Instructor Joseph">Instructor Joseph</option>
+							<option value="Friend Jacob">Friend Jacob</option>
+							<option value="Instructor Taz">Instructor Taz</option>
+							<option value="Friend Matthew">Friend Matthew</option>
+						</Form.Select>
+						<Form.Group
+							className="mb-3"
+							controlId="exampleForm.ControlTextarea1"
+						>
+							<Form.Label>Message</Form.Label>
+							<Form.Control as="textarea" rows={3} />
+						</Form.Group>
 					</div>
-					<button className="home-button" type="submit">
+					<Button className="home-button" type="submit">
 						Send Message
-					</button>
-				</form>
+					</Button>
+				</Form>
 			</div>
-		</div>
+		</>
 	);
 };
 

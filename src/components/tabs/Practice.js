@@ -41,7 +41,7 @@ const Practice = () => {
 					<br />
 					<h4>RECORDING IN PROGRESS</h4>
 					<br />
-					<img src={Mic} alt="microphone" />
+					<img src={Mic} alt="microphone indicating recording in progress" />
 					<br />
 					<h4>{remainingTime} seconds remaining</h4>
 					<button type="button" className="home-button" onClick={refresh}>

@@ -14,7 +14,7 @@ const Home = () => {
 		<div class="center">
 			<br />
 			<br />
-			<img src={Logo} alt="logo" />
+			<img src={Logo} alt="company logo" />
 			<h1>THE SEMANTIC WEB</h1>
 			<button type="button" className="home-button" onClick={browse}>
 				View Courses

@@ -1,11 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes,
-	Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/tabs/Home";
 import CourseCatalog from "./components/tabs/CourseCatalog";
 import PurchaseCourse from "./components/tabs/PurchaseCourse";
@@ -16,20 +11,18 @@ import Navbar from "./components/navbar/navbar";
 
 function App() {
 	return (
-		<Router>
-			<div>
-				<Navbar />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/courseCatalog" element={<CourseCatalog />} />
-					<Route path="/purchaseCourse" element={<PurchaseCourse />} />
-					<Route path="/practice" element={<Practice />} />
-					<Route path="/schedule" element={<Schedule />} />
-					<Route path="/chat" element={<Chat />} />
-					<Route path="*" element={<Navigate to="/" />} />
-				</Routes>
-			</div>
-		</Router>
+		<BrowserRouter>
+			<Navbar />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/courseCatalog" element={<CourseCatalog />} />
+				<Route path="/purchaseCourse" element={<PurchaseCourse />} />
+				<Route path="/practice" element={<Practice />} />
+				<Route path="/schedule" element={<Schedule />} />
+				<Route path="/chat" element={<Chat />} />
+				<Route path="*" element={<Home />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
