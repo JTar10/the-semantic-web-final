@@ -80,8 +80,11 @@ p {
 }
 
 .courses {
-    display: "grid"; 
-    width: "auto"; 
-    grid-template-columns: repeat(3, 1 fr);
+    display: grid; 
+    height: auto;
+    width: auto; 
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, auto);
+    margin-left: 5rem;
+    margin-right: 5rem;
 }

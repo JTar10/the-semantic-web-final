@@ -1,17 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import "./tabs.css";
-import { useNavigate } from "react-router-dom";
 import Mic from "../images/microphone.png";
 
 const Practice = () => {
 	const [remainingTime, setRemainingTime] = useState(null);
-
-	const moveTab = useNavigate();
-	const refresh = () => {
-		moveTab("/practice");
-	};
 
 	const timerStart = () => {
 		setRemainingTime(60);
@@ -27,35 +22,87 @@ const Practice = () => {
 			}, 1000);
 			return () => clearInterval(timer);
 		}
+		if (remainingTime === 0) {
+			setPracticeState("recordingEnded");
+		}
 	}, [remainingTime]);
 
+	const [practiceState, setPracticeState] = useState("default");
+
+	const defaultPractice = () => {
+		setPracticeState("default");
+	};
+
+	const practiceStarted = () => {
+		setPracticeState("recordingStarted");
+	};
+
+	const practicePage = () => {
+		switch (practiceState) {
+			case "default":
+				return (
+					<div>
+						<p>
+							Clicking the button below will start a one-minute recording of
+							your speech for your instructor to evaluate.
+						</p>
+						<div className="center">
+							<Button
+								type="button"
+								className="home-button"
+								onClick={() => {
+									timerStart();
+									practiceStarted();
+								}}
+							>
+								Click to Start Recording
+							</Button>
+						</div>
+					</div>
+				);
+			case "recordingStarted":
+				return (
+					<div className="center">
+						<br />
+						<h4>RECORDING IN PROGRESS</h4>
+						<br />
+						<img src={Mic} alt="microphone indicating recording in progress" />
+						<br />
+						<h4>{remainingTime} seconds remaining</h4>
+						<br />
+						<h4>If you would like to restart, click the button below.</h4>
+						<Button className="home-button" onClick={defaultPractice}>
+							Refresh Page
+						</Button>
+					</div>
+				);
+			case "recordingEnded":
+				return (
+					<div className="center">
+						<h4>
+							Recording completed! Your instructor will evaluate your
+							submission. You can click the button below if you would like to
+							send another recording.
+						</h4>
+						<div className="center">
+							<Button
+								type="button"
+								className="home-button"
+								onClick={defaultPractice}
+							>
+								Refresh Page
+							</Button>
+						</div>
+					</div>
+				);
+		}
+	};
+
 	return (
-		<div>
+		<>
 			<h2>Monitored Practice</h2>
-			<p>
-				Clicking the button will start a one-minute recording of your speech for
-				your instructor to evaluate.
-			</p>
-			{remainingTime !== null ? (
-				<div className="center">
-					<br />
-					<h4>RECORDING IN PROGRESS</h4>
-					<br />
-					<img src={Mic} alt="microphone indicating recording in progress" />
-					<br />
-					<h4>{remainingTime} seconds remaining</h4>
-					<button type="button" className="home-button" onClick={refresh}>
-						Refresh Page
-					</button>
-				</div>
-			) : (
-				<div className="center">
-					<button type="button" className="home-button" onClick={timerStart}>
-						Click to Start Recording
-					</button>
-				</div>
-			)}
-		</div>
+			{practicePage()}
+		</>
 	);
 };
 

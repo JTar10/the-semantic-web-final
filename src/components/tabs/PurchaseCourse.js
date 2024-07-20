@@ -13,7 +13,7 @@ const PurchaseCourse = () => {
 		setConfirmPurchase(true);
 	};
 
-	const makeNewPurchase = () => {
+	const fillPurchaseInfo = () => {
 		setConfirmPurchase(false);
 	};
 
@@ -23,7 +23,7 @@ const PurchaseCourse = () => {
 				return (
 					<div className="center">
 						<h2>We confirm that you have purchased a course!</h2>
-						<Button className="home-button" onClick={makeNewPurchase}>
+						<Button className="home-button" onClick={fillPurchaseInfo}>
 							Purchase Another Course
 						</Button>
 					</div>

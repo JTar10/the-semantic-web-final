@@ -1,36 +1,82 @@
 import React from "react";
 import { useState } from "react";
+import Select from "react-select";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const Chat = () => {
+	let [chosenContact, setChosenContact] = useState(null);
+
+	const [messageSent, setMessageSent] = useState(false);
+
+	const sendMessage = () => {
+		setMessageSent(true);
+	};
+
+	const draftMessage = () => {
+		setChosenContact(null);
+		setMessageSent(false);
+	};
+
+	const purchasePage = () => {
+		switch (messageSent) {
+			case true:
+				return (
+					<div className="center">
+						<h2>Your message has been sent!</h2>
+						<Button className="home-button" onClick={draftMessage}>
+							Send Another Message
+						</Button>
+					</div>
+				);
+			case false:
+				return (
+					<div>
+						<p>Send a message to your friends or instructors.</p>
+						<br />
+						<br />
+						<div className="center">
+							<Form>
+								<div className="input-field">
+									<label>Language to Practice</label>
+									<Select
+										options={[
+											{ value: "Friend Tom", label: "Friend Tom" },
+											{ value: "Friend Henry", label: "Friend Henry" },
+											{
+												value: "Instructor Joseph",
+												label: "Instructor Joseph",
+											},
+											{ value: "Friend Jacob", label: "Friend Jacob" },
+											{ value: "Instructor Taz", label: "Instructor Taz" },
+											{ value: "Friend Matthew", label: "Friend Matthew" },
+										]}
+										value={chosenContact}
+										onChange={(contact) => setChosenContact(contact)}
+									/>
+								</div>
+								<br />
+								<p>Message</p>
+								<Form.Group
+									className="mb-3"
+									controlId="exampleForm.ControlTextarea1"
+								>
+									<Form.Control as="textarea" rows={3} />
+								</Form.Group>
+								<Button className="home-button" onClick={sendMessage}>
+									Send Message
+								</Button>
+							</Form>
+						</div>
+					</div>
+				);
+		}
+	};
+
 	return (
 		<>
 			<h2>Chat</h2>
-			<p>Send a message to your friends or instructors.</p>
-			<br />
-			<br />
-			<div className="center">
-				<Form>
-					<Form.Select aria-label="Default select example">
-						<option>Select a contact to message</option>
-						<option value="Friend Tom">Friend Tom</option>
-						<option value="Friend Henry">Friend Henry</option>
-						<option value="Instructor Joseph">Instructor Joseph</option>
-						<option value="Friend Jacob">Friend Jacob</option>
-						<option value="Instructor Taz">Instructor Taz</option>
-						<option value="Friend Matthew">Friend Matthew</option>
-					</Form.Select>
-					<br />
-					<p>Message</p>
-					<Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-						<Form.Control as="textarea" rows={3} />
-					</Form.Group>
-					<Button className="home-button" type="submit">
-						Send Message
-					</Button>
-				</Form>
-			</div>
+			{purchasePage()}
 		</>
 	);
 };
