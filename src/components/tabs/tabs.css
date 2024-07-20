@@ -36,6 +36,7 @@ p {
     margin-left: 25px;
     margin-top: 15px;
     margin-bottom: 5px;
+    margin-right: 25px;
 }
 
 .row {
@@ -52,6 +53,7 @@ p {
     color: #fff;
     background-color: #000;
     cursor: pointer;
+    margin-top: 10px;
     margin-left: 25px;
     padding: 5px;
     border-radius: 10px;
@@ -62,3 +64,24 @@ p {
     background-color: #3d3c3c;
 }
 
+.language-button {
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    margin-right: 25px;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.language-button:hover {
+    background-color: #3d3c3c;
+}
+
+.courses {
+    display: "grid"; 
+    width: "auto"; 
+    grid-template-columns: repeat(3, 1 fr);
+    grid-template-rows: repeat(3, auto);
+}

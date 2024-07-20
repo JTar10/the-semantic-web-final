@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,8 +12,8 @@ const Schedule = () => {
 	const [chosenLanguage, setChosenLanguage] = useState(null);
 
 	return (
-		<div>
-			<h2>Schedule Practice</h2>
+		<>
+			<h2>Scheduling</h2>
 			<p>
 				Schedule a practice session with a native speaker. Each session is 30
 				minutes.
@@ -19,7 +21,7 @@ const Schedule = () => {
 			<br />
 			<br />
 			<div className="center">
-				<form>
+				<Form>
 					<div className="row">
 						<div className="input-field">
 							<label>Date</label>
@@ -56,12 +58,12 @@ const Schedule = () => {
 							onChange={(option) => setChosenLanguage(option)}
 						/>
 					</div>
-					<button className="home-button" type="submit">
+					<Button className="home-button" type="submit">
 						Schedule Session
-					</button>
-				</form>
+					</Button>
+				</Form>
 			</div>
-		</div>
+		</>
 	);
 };
 

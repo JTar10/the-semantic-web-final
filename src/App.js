@@ -7,6 +7,7 @@ import PurchaseCourse from "./components/tabs/PurchaseCourse";
 import Practice from "./components/tabs/Practice";
 import Schedule from "./components/tabs/Schedule";
 import Chat from "./components/tabs/Chat";
+import Help from "./components/tabs/Help";
 import Navbar from "./components/navbar/navbar";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/practice" element={<Practice />} />
 				<Route path="/schedule" element={<Schedule />} />
 				<Route path="/chat" element={<Chat />} />
+				<Route path="/help" element={<Help />} />
 				<Route path="*" element={<Home />} />
 			</Routes>
 		</BrowserRouter>

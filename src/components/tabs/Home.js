@@ -1,8 +1,8 @@
 import React from "react";
 import "./tabs.css";
 import { useNavigate } from "react-router-dom";
-
 import Logo from "../images/logo.png";
+import Button from "react-bootstrap/Button";
 
 const Home = () => {
 	const moveTab = useNavigate();
@@ -16,9 +16,9 @@ const Home = () => {
 			<br />
 			<img src={Logo} alt="company logo" />
 			<h1>THE SEMANTIC WEB</h1>
-			<button type="button" className="home-button" onClick={browse}>
+			<Button className="home-button" onClick={browse}>
 				View Courses
-			</button>
+			</Button>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 const CourseCatalog = () => {
 	const courseList = [
@@ -621,124 +622,132 @@ const CourseCatalog = () => {
 			<h2>Course Catalog</h2>
 			<Container>
 				<Row>
-					<Col sm={4}>
+					<Col>
 						<div>
+							<h4>Course Search</h4>
+							<input
+								type="text"
+								className="input-field"
+								value={searchFilter}
+								onChange={(event) => setSearchFilter(event.target.value)}
+								placeholder="SPA312"
+							/>
 							<h4>Language</h4>
-							<button
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("ENG")}
 							>
 								English
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("FRE")}
 							>
 								French
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("SPA")}
 							>
 								Spanish
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("ARA")}
 							>
 								Arabic
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("GER")}
 							>
 								German
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("RUS")}
 							>
 								Russian
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLanguageFilter("")}
 							>
 								All
-							</button>
+							</Button>
 						</div>
 						<div>
 							<h4>Difficulty</h4>
-							<button
+							<Button
 								className="filter-button"
 								onClick={() => setLevelFilter("Beginner")}
 							>
 								Beginner
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLevelFilter("Intermediate")}
 							>
 								Intermediate
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLevelFilter("Advanced")}
 							>
 								Advanced
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setLevelFilter("")}
 							>
 								All
-							</button>
+							</Button>
 						</div>
 						<div>
 							<h4>Class Type</h4>
-							<button
+							<Button
 								className="filter-button"
 								onClick={() => setClassFilter("Individual")}
 							>
 								Individual
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setClassFilter("Group")}
 							>
 								Group
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setClassFilter("")}
 							>
 								All
-							</button>
+							</Button>
 						</div>
 						<div>
 							<h4>Modality</h4>
-							<button
+							<Button
 								className="filter-button"
 								onClick={() => setModalityFilter("In Person")}
 							>
 								In Person
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setModalityFilter("Online")}
 							>
 								Online
-							</button>
-							<button
+							</Button>
+							<Button
 								className="filter-button"
 								onClick={() => setModalityFilter("")}
 							>
 								All
-							</button>
+							</Button>
 						</div>
 						<div>
 							<h4>Reset All Filters</h4>
-							<button
+							<Button
 								className="filter-button"
 								onClick={() => {
 									setLanguageFilter("");
@@ -748,22 +757,23 @@ const CourseCatalog = () => {
 								}}
 							>
 								Reset
-							</button>
+							</Button>
 						</div>
-						<h4>Course Search</h4>
-						<input
-							type="text"
-							className="input-field"
-							value={searchFilter}
-							onChange={(event) => setSearchFilter(event.target.value)}
-							placeholder="SPA312"
-						/>
 					</Col>
-					<Col sm={8}>
-						<div>
+					<Col>
+						<Container className="courses">
 							{filteredCourses.map((course, index) => (
-								<div key={index}>
-									<p style={{ marginTop: "25px" }}>{course.code}</p>
+								<div
+									key={index}
+									style={{
+										padding: "5px",
+										width: "160px",
+										outline: "solid",
+										margin: "10px",
+										borderRadius: "5%",
+									}}
+								>
+									<p>{course.code}</p>
 									<p>• {course.level}</p>
 									<p>• {course.class}</p>
 									<p>• {course.length}</p>
@@ -778,7 +788,7 @@ const CourseCatalog = () => {
 									</button>
 								</div>
 							))}
-						</div>
+						</Container>
 					</Col>
 				</Row>
 			</Container>
