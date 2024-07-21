@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/the-semantic-web-final/static/css/main.d2da6069.css",
-    "main.js": "/the-semantic-web-final/static/js/main.d1a83636.js",
+    "main.js": "/the-semantic-web-final/static/js/main.9c4716ea.js",
     "static/js/453.45e13936.chunk.js": "/the-semantic-web-final/static/js/453.45e13936.chunk.js",
     "static/media/logo.png": "/the-semantic-web-final/static/media/logo.ecf306d0e90116edfc62.png",
     "index.html": "/the-semantic-web-final/index.html",
     "main.d2da6069.css.map": "/the-semantic-web-final/static/css/main.d2da6069.css.map",
-    "main.d1a83636.js.map": "/the-semantic-web-final/static/js/main.d1a83636.js.map",
+    "main.9c4716ea.js.map": "/the-semantic-web-final/static/js/main.9c4716ea.js.map",
     "453.45e13936.chunk.js.map": "/the-semantic-web-final/static/js/453.45e13936.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d2da6069.css",
-    "static/js/main.d1a83636.js"
+    "static/js/main.9c4716ea.js"
   ]
 }
