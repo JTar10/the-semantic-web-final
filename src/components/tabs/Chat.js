@@ -38,7 +38,7 @@ const Chat = () => {
 						<div className="center">
 							<Form>
 								<div className="input-field">
-									<label>Language to Practice</label>
+									<label>Contact</label>
 									<Select
 										options={[
 											{ value: "Friend Tom", label: "Friend Tom" },
