@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const Chat = () => {
-	let [chosenContact, setChosenContact] = useState(null);
+	const [chosenContact, setChosenContact] = useState(null);
 
 	const [messageSent, setMessageSent] = useState(false);
 
